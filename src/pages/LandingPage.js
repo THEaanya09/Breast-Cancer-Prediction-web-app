@@ -82,7 +82,7 @@ function easeInOutCubic(t) {
 }
 
 const PARTICLE_COUNT = 4500;
-const EMOJI_RENDER_SIZE = 120;
+//const EMOJI_RENDER_SIZE = 120;
 const SCATTER_PHASE_MS  = 900;
 const GATHER_PHASE_MS   = 2000;
 const TEXT_DELAY_MS     = SCATTER_PHASE_MS + GATHER_PHASE_MS + 300;
@@ -97,9 +97,13 @@ export default function LandingPage() {
   useEffect(() => {
     const initTimer = setTimeout(init, 120);
     return () => {
-      clearTimeout(initTimer);
-      if (stateRef.current.animId) cancelAnimationFrame(stateRef.current.animId);
-    };
+  clearTimeout(initTimer);
+
+  const animId = stateRef.current.animId;
+  if (animId) {
+    cancelAnimationFrame(animId);
+  }
+};
   // eslint-disable-next-line
   }, []);
 

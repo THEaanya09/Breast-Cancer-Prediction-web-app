@@ -54,16 +54,16 @@ export default function Chatbot() {
     // Find matching FAQ
     const lower = text.toLowerCase();
     const matched = faqs.find((f) =>
-      f.q.toLowerCase().includes(lower) ||
-      lower.includes(f.q.toLowerCase().split(" ").slice(0, 3).join(" ")) ||
-      lower.includes("pain") && f.q.includes("pain") ||
-      lower.includes("doctor") && f.q.includes("doctor") ||
-      lower.includes("mammogram") && f.q.includes("mammogram") ||
-      lower.includes("prevent") && f.q.includes("prevent") ||
-      lower.includes("self") && f.q.includes("self") ||
-      lower.includes("helpline") && f.q.includes("helpline") ||
-      lower.includes("diagnosis") && f.q.includes("diagnosis")
-    );
+  f.q.toLowerCase().includes(lower) ||
+  lower.includes(f.q.toLowerCase().split(" ").slice(0, 3).join(" ")) ||
+  (lower.includes("pain") && f.q.includes("pain")) ||
+  (lower.includes("doctor") && f.q.includes("doctor")) ||
+  (lower.includes("mammogram") && f.q.includes("mammogram")) ||
+  (lower.includes("prevent") && f.q.includes("prevent")) ||
+  (lower.includes("self") && f.q.includes("self")) ||
+  (lower.includes("helpline") && f.q.includes("helpline")) ||
+  (lower.includes("diagnosis") && f.q.includes("diagnosis"))
+);
 
     const botText = matched
       ? matched.a
